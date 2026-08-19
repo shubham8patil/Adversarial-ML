@@ -71,7 +71,7 @@ Fifteen decision-time (evasion) attacks and five data-poisoning attacks were imp
 
 The gradient-based attacks (FGSM, PGD, BIM, DeepFool, C&W) are the most damaging to the CNN: DeepFool and C&W reduce accuracy to near zero using only minimal, targeted perturbations, while PGD is consistently stronger than FGSM at the same perturbation budget ε because it iterates the gradient step (Figure 3). Among classical models, the SVM boundary attack and the linear-gradient attack on Logistic Regression are notably effective, whereas Gradient Boosting proved robust to the numerical-gradient evasion attack used here. Among poisoning attacks, the backdoor/trojan attack is the most severe: a 3×3-pixel trigger inserted into 10% of training images causes 100% of triggered test images to be misclassified as the target label, while leaving clean-input accuracy almost unaffected (0.9775).
 
-![Figure 3](media/image1.png)
+![Figure 3](image1.png)
 
 *Figure 3. FGSM adversarial examples on a single MNIST digit at increasing ε; the model's prediction flips from '7' to '3' once the perturbation becomes visible to the eye.*
 
@@ -104,7 +104,7 @@ Ten defenses target decision-time evasion attacks (evaluated primarily against F
 
 PGD adversarial training is the strongest evasion defense observed, nearly doubling robust accuracy under a PGD attack (0.462 → 0.833) while keeping clean accuracy high (0.978). Feature squeezing at 1-bit depth is the best lightweight (no-retraining) defense against FGSM. For poisoning, KNN-based sanitization and RONI most fully recover clean-level accuracy by directly identifying and removing corrupted or mislabeled samples, whereas simple bagging with no sample screening provides little benefit on its own. Figure 4 summarizes the accuracy trends across the key evasion attacks and the effect of the top five evasion defenses against FGSM.
 
-![Figure 4](media/image2.png)
+![Figure 4](image2.png)
 
 *Figure 4. Top-left: FGSM vs PGD accuracy vs ε. Top-right: noise-based attack comparison. Bottom-left: label-flipping impact per classifier. Bottom-right: defended vs undefended accuracy under FGSM (ε=0.15) for the five strongest defenses.*
 
